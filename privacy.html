@@ -30,12 +30,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}
 
 <h2>1. Information Collection and Use</h2>
 <p>Pakistan Gold Silver Rate Live does not require users to create an account or provide their name, address, contacts or precise location. The app does not request device location permission.</p>
-<p>To operate and improve the app, certain technical and usage information may be processed through third-party services, including device information, app version, operating system, app usage events, notification tokens, advertising identifiers and crash diagnostics.</p>
-<p>The app uses Google Firebase services (Firestore, Cloud Messaging, Analytics and Crashlytics), Google AdMob and AppLovin MAX. Advertising partners may use your IP address to estimate your approximate location. Please see the sections below for more details about these services and how information is handled.</p>
+<p>To operate and improve the app, certain technical and usage information may be processed through third-party services. Depending on the services and features used, this may include device information, app version, operating system, Firebase Installation ID, Firebase Cloud Messaging registration token, app screen-view and other app usage events, advertising identifiers, IP address, ad impressions and ad interactions. The app does not require you to create an account.</p>
+<p>The app's current Android project includes Google Firebase services (Firestore, Cloud Messaging, Analytics and Firebase Installations), Google Mobile Ads/AdMob, AppLovin MAX and Google Play Billing. Advertising mediation adapters for Google, Meta Audience Network and Unity Ads are also included in the project; whether a particular mediated network receives information depends on the live mediation configuration and ad request. The inspected production project dependencies do not include the Firebase Crashlytics SDK, so this policy does not describe Crashlytics as an active app integration. Advertising providers may process your IP address and infer approximate location. Please see the sections below for more details.</p>
 
 <h2>2. Log Data and Diagnostics</h2>
 <p>When you use the app, technical information may be collected automatically by our app or third-party services, particularly when an error or crash occurs.</p>
-<p>This information may include your device model, operating system version, app version, IP address, crash reports, diagnostic details, app configuration and the date and time of app activity.</p>
+<p>Third-party services may automatically receive technical information such as device model, operating system version, app version, IP address, app configuration, app activity, advertising identifiers and diagnostic information, as applicable to the service. The app's inspected source includes Firebase Analytics screen-view and event logging. The current inspected project does not include Firebase Crashlytics as a declared dependency.</p>
 <p>We use this information to identify technical problems, improve app performance, maintain security and make the application more reliable.</p>
 
 <h2>3. Cookies and Similar Technologies</h2>
@@ -47,27 +47,29 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}
 <ul>
 <li><strong>Firebase Firestore:</strong> Used to store and retrieve application data, including market rates and related information.</li>
 <li><strong>Firebase Cloud Messaging:</strong> Used to deliver notifications. A Firebase registration token may be processed to route notifications to your device.</li>
-<li><strong>Firebase Analytics:</strong> Used to understand app usage, feature engagement and application performance.</li>
-<li><strong>Firebase Crashlytics:</strong> Used to collect crash reports and technical diagnostics to identify and fix application errors.</li>
+<li><strong>Firebase Analytics:</strong> Used to record screen views and app events to understand app usage and improve features.</li>
+<li><strong>Firebase Installations:</strong> Used to obtain an app installation identifier. The inspected app code stores this identifier in local app preferences.</li>
 </ul>
-<p>These services may process technical information such as device details, app activity, app-instance identifiers and diagnostic information, depending on their configuration and your device settings.</p>
+<p>These services may process technical information such as device details, app activity, app-instance identifiers and notification registration tokens, depending on their configuration and your use of the app. Firebase Cloud Messaging uses registration tokens to route notifications to app installations. Firebase Analytics may process app interaction and screen-view information.</p>
 <p>For more information, see <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a>.</p>
 
 <h2>5. Advertising Partners</h2>
 <p>Our application displays advertisements through third-party advertising services, including:</p>
-<ul><li>Google AdMob</li><li>AppLovin MAX</li></ul>
-<p>Depending on your region, consent choices, advertising format and SDK configuration, these providers and their advertising partners may process information such as advertising identifiers, IP address, device information, app information, approximate location inferred from IP address, ad impressions and ad interactions.</p>
+<ul><li>Google Mobile Ads / Google AdMob</li><li>AppLovin MAX</li><li>Third-party mediation networks available through configured adapters, including Google, Meta Audience Network and Unity Ads, where those networks are enabled and selected to serve an ad.</li></ul>
+<p>Depending on your region, ad request, mediation configuration and applicable settings, these providers and their advertising partners may process information such as advertising identifiers, IP address, device information, app information, approximate location inferred from IP address, ad impressions, ad interactions and fraud-prevention signals. The presence of a mediation adapter in the app does not mean that every network receives information on every ad request.</p>
 <p>This information may be used to deliver advertisements, measure advertising performance, prevent fraud and, where permitted, personalize advertisements.</p>
 <p>The app does not request device location permission. Approximate location may nevertheless be inferred by an advertising provider from an IP address.</p>
 <p>You can review the providers' privacy policies:</p>
 <ul>
 <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
 <li><a href="https://www.applovin.com/privacy/" target="_blank" rel="noopener">AppLovin Privacy Policy</a></li>
+<li><a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta Privacy Policy</a></li>
+<li><a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener">Unity Privacy Policy</a></li>
 </ul>
 <p>You may also manage advertising and privacy settings through your device settings and consent choices presented in the app.</p>
 
 <h2>6. Subscriptions and Payments</h2>
-<p>The app may offer premium features through paid subscriptions. Purchases are processed through Google Play Billing. Google Play handles payment credentials and provides purchase and subscription-status information needed to verify purchases and enable premium features.</p>
+<p>The app may offer premium features through paid subscriptions. Purchases are processed through Google Play Billing. Google Play Billing handles payment credentials and provides purchase and subscription information needed to verify purchases and enable premium features. The inspected BillingManager code receives purchase information, uses purchase tokens to acknowledge purchases through Google Play Billing, and stores the purchase token, selected plan ID and premium status in the app's private local preferences. The inspected BillingManager code does not show purchase tokens being sent to the developer's own server or Firebase.</p>
 <p>We do not receive your complete payment-card details through Google Play Billing.</p>
 <p>You can manage or cancel your subscriptions through your Google Play account. For more information, visit <a href="https://support.google.com/googleplay/answer/7018481" target="_blank" rel="noopener">Google Play Subscription Help</a>.</p>
 
@@ -79,7 +81,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}
 <li>Verify subscriptions and enable premium features.</li>
 <li>Display and measure advertisements.</li>
 <li>Understand app usage and improve features.</li>
-<li>Diagnose crashes and technical problems.</li>
+<li>Review app usage, maintain app functionality and troubleshoot technical issues.</li>
 <li>Protect the application against fraud, abuse and security issues.</li>
 <li>Comply with applicable legal obligations.</li>
 </ul>
@@ -87,10 +89,10 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}
 <h2>8. Sharing of Information</h2>
 <p>We may allow trusted third-party service providers to process information when necessary to operate the application and provide its features. These providers may include:</p>
 <ul>
-<li>Google and Firebase for application infrastructure, analytics, notifications and crash reporting.</li>
-<li>Google AdMob for advertising.</li>
-<li>AppLovin for advertising mediation and related services.</li>
-<li>Google Play for subscriptions and payment processing.</li>
+<li>Google and Firebase for application infrastructure, analytics, installation identifiers and notifications.</li>
+<li>Google Mobile Ads / AdMob for advertising.</li>
+<li>AppLovin MAX and, when enabled through mediation, participating third-party advertising networks such as Google, Meta Audience Network and Unity Ads.</li>
+<li>Google Play for subscription purchase processing and verification.</li>
 </ul>
 <p>These providers process information according to their own privacy policies, terms and applicable legal requirements. We do not sell users' personal information for monetary consideration.</p>
 
@@ -100,7 +102,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}
 
 <h2>10. Your Privacy Choices and Rights</h2>
 <p>Depending on your country and applicable law, you may have rights to request access to, correction of or deletion of certain personal information, or to object to certain processing.</p>
-<p>You can manage notification permissions, advertising settings and other privacy controls through your device settings and any consent options available in the app.</p>
+<p>You can manage notification permissions and available device-level advertising settings through your device settings. Advertising and privacy choices may also be presented by the app or its advertising providers where applicable. The source files reviewed for this update do not establish whether a Google UMP consent form is implemented; please review the actual in-app consent experience and the applicable regional consent requirements.</p>
 <p>Because the app does not require user accounts, some information is processed directly by third-party providers. Requests concerning information held by those providers may need to be submitted directly to them.</p>
 <p>For privacy questions or requests, contact us at <a href="mailto:usmaniqbal235@gmail.com">usmaniqbal235@gmail.com</a>.</p>
 
